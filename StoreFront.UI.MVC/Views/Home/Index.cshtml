@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="row gy-4 d-flex justify-content-between">
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                <h2 data-aos="fade-up">Your Shirt Friend</h2>
+                <p data-aos="fade-up" data-aos-delay="100">The world of shirts isn’t stopping so neither are we! We want the world to have our Tees</p>
+
+                <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                    <input type="text" class="form-control" placeholder="Shirt Description">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+
+                <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+
+                    <div class="col-lg-3 col-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="90489" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Smiles</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Sold</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Orders</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Workers</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                </div>
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
+            </div>
+
+        </div>
+    </div>
+</section><!-- End Hero Section -->
+
+<main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+                    <div class="icon flex-shrink-0"><i class="fa-solid fa-cart-flatbed"></i></div>
+                    <div>
+                        <h4 class="title">Shop</h4>
+                        <p class="description">Everyone wants a fun t-shirt click the Shop link to view our t-shirts. </p>
+                        <a href="@Url.Action("Index", "Products")" class="readmore stretched-link"><span>Store</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon flex-shrink-0"><i class="fa-solid fa-truck"></i></div>
+                    <div>
+                        <h4 class="title">Delivery</h4>
+                        <p class="description">Delivery is free! Just pick the shirt you want and it will be delivered to your address.</p>
+                        <a href="@Url.Action("Index", "Products")" class="readmore stretched-link"><span>Cart</span><i class="bi bi-arrow-right"></i></a>
+
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon flex-shrink-0"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <div>
+                        <h4 class="title">Quick 1 2 3</h4>
+                        <p class="description">Shopping is quick and easy start here to view our wide selection of products</p>
+                        <a href="@Url.Action("Index", "Products")" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+            </div>
+
+        </div>
+    </section><!-- End Featured Services Section -->
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+                <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                    <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                    <a href="https://www.youtube.com/watch?v=xNjyG8S4_kI" class="glightbox play-btn"></a>
+                </div>
+                <div class="col-lg-6 content order-last  order-lg-first">
+                    <h3>About Us</h3>
+                    <p>
+                        We are a t-shirt shop that carries a variety of shirts that fit anyones need. We love our graphic tees but we understand sometimes a plain tee is what you need
+                    </p>
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <i class="bi bi-diagram-3"></i>
+                            <div>
+                                <h5>Organization</h5>
+                                <p>Searching feautres are a big part of the shopping process and we know that</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-fullscreen-exit"></i>
+                            <div>
+                                <h5>Target Audience </h5>
+                                <p>We know our customers love our products, but we aim to build a tee just the way you need </p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-broadcast"></i>
+                            <div>
+                                <h5>Customer Appreciation  </h5>
+                                <p>We love to hear from our customers call us on our line and tell us how we did</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+
+
+
+</main><!-- End #main -->

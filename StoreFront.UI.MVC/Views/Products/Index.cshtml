@@ -1,0 +1,108 @@
+﻿@model IEnumerable<StoreFront.DATA.EF.Models.Product>
+@*@model IPagedList<StoreFront.DATA.EF.Models.Product>*@
+
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@{
+    ViewData["Title"] = "Store";
+}
+
+
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Our Store</h2>
+                    <p>Our crisp Tees are made out of the finest ingredients! Scrumptious designs with flair. We also carry plain and dependable shirts that have no logos or designs for a more simple and classic poise. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+
+        <div class="container">
+            <ol>
+                <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li>Store</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Horizontal Product Section ======= -->
+<section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header mb-4">
+            <span>Store</span>
+            <h2>Store</h2>
+            <div class=" align-items-center justify-content-center" style="">
+                <a asp-action="Create" class="m-4 buy-btn">Create New</a>
+                <a asp-action="VerticalProducts" class="buy-btn"> <i class="bi bi-distribute-horizontal"></i></a>
+                @if (ViewBag.NbrResults != null)
+                {
+                    <p class="mt-5 p-2 alert-warning text-center">
+                        Showing @ViewBag.NbrResults result@(ViewBag.NbrResults > 1 ? "s" : "") for '@ViewBag.SearchTerm'...
+                    </p>
+                }
+
+            </div>
+
+        </div>
+
+
+        <div class="container" data-aos="fade-up">
+            <div class="row gy-4">
+                @foreach (var item in Model)
+                {
+                    <div class="row gy-4 pricing-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                            <img src="~/assets/img/@item.ProductImage" class="img-fluid" alt="@item.ProductImage" />
+                        </div>
+                        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                            <h4><sup>$</sup>@Html.DisplayFor(modelItem => item.Price)</h4>
+                        </div>
+
+                            <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                <ul>
+                                    <li><strong>@Html.DisplayFor(modelItem => item.ProductName)</strong></li>
+                                    <li>@Html.DisplayFor(modelItem => item.ProductDescription)</li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a asp-action="Edit" asp-route-id="@item.ProductId">Edit Item</a>
+                                        | <a asp-action="Delete" asp-route-id="@item.ProductId">Delete Item</a>
+                                    </li>
+                                }
+                                </ul>
+                            </div>
+                        
+                        <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                            <div class="text-center">
+                                <a asp-action="AddToCart" asp-controller="ShoppingCart"
+                               asp-route-id="@item.ProductId" class="buy-btn">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+@*        <div class="row mt-5">
+            <div class="mx-auto text-center">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                <div class="w-100">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new {page, searchTerm = ViewBag.SearchTerm, categoryId = ViewBag.CategoryId}))
+                </div>
+            </div>
+        </div>*@
+
+
+
+        <div class="btn-box">
+            <a asp-action="TiledProducts">
+                View All products
+            </a>
+        </div>
+    </div>
+</section>

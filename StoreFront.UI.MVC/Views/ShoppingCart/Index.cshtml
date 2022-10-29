@@ -1,0 +1,113 @@
+﻿@model Dictionary<int, StoreFront.UI.MVC.Models.CartItemViewModel>
+
+
+@{
+    ViewData["Title"] = "Cart";
+}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Your Cart</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+
+        <div class="container">
+            <ol>
+                <li><a asp-action="Index" asp-controller="Products">Store</a></li>
+                <li>Cart</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+
+
+            <p align="center">
+                <a asp-action="Index" asp-controller="Products" class="btn btn-info">
+                    Back to Shopping
+                </a>
+            </p>
+
+        </div>
+
+        @if (Model.Count == 0)
+        {
+            @*Nothing in the cart*@
+            <p class="alert alert-warning text-center">
+                @ViewBag.Message
+            </p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th class="text-center">Quantity</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img style="30%" src="~/assets/img/@item.Value.CartProduct.ProductImage" alt="@item.Value.CartProduct.ProductName" />
+                            </td>
+                            <td>
+                                @*@item.Value.Qty*@
+                                <div class="container row gy-4 col-lg-3 d-flex align-items-center justify-content-center">
+                                    <form asp-action="UpdateCart">
+                                        <input type="hidden" name="productId" value="@item.Value.CartProduct.ProductId" />
+                                        <input type="number" min="1" max="@item.Value.CartProduct.QtyInStock" name="qty" value="@item.Value.Qty" class="form-control d-block mx-auto w-50 text-center" />
+                                        <input type="submit" value="Update Cart" class="btn btn-primary btn-sm" />
+                                    </form>
+                                </div>
+                            </td>
+                            <td>
+                                @item.Value.CartProduct.ProductName
+                            </td>
+                            <td>
+                                @*
+                        Using the DisplayFor() helper method so we can see some currency formatting
+                        *@
+                                @Html.DisplayFor(modelItem => item.Value.CartProduct.Price)
+                                @*@item.Value.CartProd.ProductPrice*@
+                            </td>
+                            <td>
+                                @*[Total goes here]*@
+                                @{
+                                    // Calculate the line total and display for each cart item
+                                    decimal? lineTotal = item.Value.Qty * item.Value.CartProduct.Price;
+                                }
+
+                                @string.Format($"{lineTotal:c}")
+
+                            </td>
+                            <td>
+                                @*[Remove from cart button]*@
+                                <a asp-action="RemoveFromCart" asp-controller="ShoppingCart" asp-route-id="@item.Value.CartProduct.ProductId" class="btn btn-danger">
+                                    Remove From Cart
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+
+    </div>
+</section>

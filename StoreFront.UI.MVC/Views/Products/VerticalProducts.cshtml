@@ -1,0 +1,79 @@
+﻿@model IEnumerable<StoreFront.DATA.EF.Models.Product>
+
+@{
+    ViewData["Title"] = "VerticalProducts";
+}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Our Store</h2>
+                    <p>Our crisp Tees are made out of the finest ingredients! Scrumptious designs with flair. We also carry plain and dependable shirts that have no logos or designs for a more simple and classic poise. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+
+        <div class="container">
+            <ol>
+                <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li>Store</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+
+<!-- ======= Vertical Pricing Section ======= -->
+<section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header mb-4">
+            <span>Store</span>
+            <h2>Store</h2>
+            <div class=" align-items-center justify-content-center" style="">
+                <a asp-action="Create" class="m-4 buy-btn">Create New</a>
+
+                <a asp-action="index" class="buy-btn"> <i class="bi bi-distribute-vertical"></i></a>
+                <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                    <input type="text" name="searchTerm" class="form-control text-center" placeholder="Shirt Description">
+                    <button type="submit" class="btn btn-primary p-3">Search</button>
+                </form>
+            </div>
+
+        </div>
+        </div>
+
+    </div>
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-item">
+                            <h3>@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                            <h4><sup>$</sup>@Html.DisplayFor(modelItem => item.Price)</h4>
+                            <ul>
+                                <img src="~/assets/img/@item.ProductImage" class="img-fluid" alt="@item.ProductImage" />
+                                <li>@Html.DisplayFor(modelItem => item.ProductDescription)</li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a asp-action="Edit" asp-route-id="@item.ProductId">Edit this Item</a>
+                                        | <a asp-action="Delete" asp-route-id="@item.ProductId">Delete this Item</a>
+                                    </li>
+                                }
+                            </ul>
+                            <a asp-action="AddToCart" asp-controller="ShoppingCart"
+                           asp-route-id="@item.ProductId" class="buy-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

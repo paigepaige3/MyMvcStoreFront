@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>About</h2>
+                        <p>A <em>great</em> Product starts with a <em>great</em> Team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+                    <li>About</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4 mt-5">
+                <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                    <img src="~/assets/img/OurTeam.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 content order-last  order-lg-first">
+                    <h3>About Us</h3>
+                    <p>
+                        We are a t-shirt shop that carries a variety of shirts that fit anyones need. We love our graphic tees but we understand sometimes a plain tee is what you need
+                    </p>
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <i class="bi bi-diagram-3"></i>
+                            <div>
+                                <h5>Organization</h5>
+                                <p>Searching feautres are a big part of the shopping process and we know that</p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <i class="bi bi-fullscreen-exit"></i>
+                            <div>
+                                <h5>Target Audience </h5>
+                                <p>We know our customers love our products, but we aim to build a tee just the way you need </p>
+                            </div>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            <i class="bi bi-broadcast"></i>
+                            <div>
+                                <h5>Customer Appreciation  </h5>
+                                <p>We love to hear from our customers call us on our line and tell us how we did</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+
+
+</main><!-- End #main -->

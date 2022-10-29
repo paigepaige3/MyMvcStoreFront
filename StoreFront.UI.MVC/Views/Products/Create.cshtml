@@ -1,0 +1,90 @@
+﻿@model StoreFront.DATA.EF.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background-image: url('../assets/img/page-header.jpg');">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Create Product</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+
+        <div class="container">
+            <ol>
+                <li><a asp-action="Index" asp-controller="Products">Store</a></li>
+                <li>Create a Product</li>
+            </ol>
+        </div>
+    </nav>
+</div><!-- End Breadcrumbs -->
+<section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductDescription" class="control-label"></label>
+                    <input asp-for="ProductDescription" class="form-control" />
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QtyInStock" class="control-label"></label>
+                    <input asp-for="QtyInStock" class="form-control" />
+                    <span asp-validation-for="QtyInStock" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiscountPrice" class="control-label"></label>
+                    <input asp-for="DiscountPrice" class="form-control" />
+                    <span asp-validation-for="DiscountPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SupplierId" class="control-label"></label>
+                    <input asp-for="SupplierId" class="form-control" />
+                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Discontinued" class="control-label"></label>
+                    <input asp-for="Discontinued" class="form-control" />
+                    <span asp-validation-for="Discontinued" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+
+        <div>
+            <br />
+            <a asp-action="Index">Back to Store</a>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
